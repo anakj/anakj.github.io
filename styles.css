@@ -1,0 +1,189 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
+}
+
+body {
+    line-height: 1.6;
+    color: #333;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    color: #ffffff;
+    background-color: #ff6f61;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    -webkit-box-shadow: 0px 0.5px 8px 1px rgba(56,56,56,1);
+    -moz-box-shadow: 0px 0.5px 8px 1px rgba(56,56,56,1);
+    box-shadow: 0px 0.5px 8px 1px rgba(56,56,56,1);
+}
+
+.navbar .logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.navbar nav ul {
+    list-style: none;
+    display: flex;
+    gap: 1.5rem;
+}
+
+.navbar nav ul li a {
+    color: #fdfdfd;
+    text-decoration: none;
+    font-size: 1rem;
+}
+
+.hero {
+    height: 80vh;
+    background-image: url('hero-background.jpg');
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: #fff;
+}
+
+.hero h1 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    color: #333;
+}
+
+.hero p {
+    font-size: 1.25rem;
+    margin-bottom: 2rem;
+    color: #333;
+}
+
+.cta-button {
+    background-color: #ff6f61;
+    color: #fff;
+    padding: 0.75rem 1.5rem;
+    border: none;
+    border-radius: 5px;
+    text-decoration: none;
+    font-size: 1rem;
+}
+
+.about, .projects, .footer {
+    padding: 4rem 2rem;
+    text-align: center;
+}
+
+.projects {
+    background-color: #f4f4f4;
+}
+
+.experience {
+    padding: 4rem 2rem;
+    text-align: center;
+    background-color: #f4f4f4;
+}
+
+.experience h2 {
+    font-size: 2rem;
+    margin-bottom: 2rem;
+}
+
+.experience-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 2rem;
+}
+
+.experience-card {
+    background: #fff;
+    padding: 1.5rem;
+    border-radius: 10px;
+    text-align: center;
+    width: 250px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.experience-card img {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    margin-bottom: 1rem;
+}
+
+.experience-card h3 {
+    font-size: 1.2rem;
+    color: #333;
+    margin-bottom: 0.5rem;
+}
+
+.experience-card p {
+    font-size: 1rem;
+    color: #555;
+}
+
+.project-card {
+    display: inline-block;
+    margin: 1rem;
+    text-align: left;
+}
+
+.project-card img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+}
+
+.footer {
+    color: #bbbbbb;
+    padding-top: 2rem;
+}
+
+.knowledge {
+    padding: 4rem 2rem;
+    text-align: center;
+    background-color: #f4f4f4;
+}
+
+.knowledge h2 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+
+.knowledge p {
+    font-size: 1.25rem;
+    margin-bottom: 2rem;
+    color: #555;
+}
+
+.tools {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 2rem;
+}
+
+.tool {
+    text-align: center;
+}
+
+.tool img {
+    height: 60px; /* Ajuste o tamanho conforme necessário */
+    width: auto;
+    margin-bottom: 0.5rem;
+}
+
+.tool p {
+    font-size: 1rem;
+    color: #333;
+}

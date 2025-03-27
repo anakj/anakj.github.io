@@ -6,8 +6,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Meu Portfólio</title>
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+
 </head>
 <body>
+    <div class="mode-toggle">
+        <label for="night-mode-toggle" class="switch">
+            <input type="checkbox" id="night-mode-toggle">
+            <span class="slider"></span>
+        </label>
+    </div>
     <header>
         <div class="navbar">
             <!-- Substituindo o texto por uma imagem -->
@@ -16,6 +25,7 @@
             </div>
             <nav>
                 <ul>
+                    <button id="theme-toggle" class="theme-toggle">🌙</button>
                     <li><a href="#projects">Projetos</a></li>
                     <li><a href="#knowledge">Info</a></li>
                     <li><a href="mailto:eloisa.aesa@gmail.com">eloisa.aesa@gmail.com</a></li>
@@ -31,11 +41,11 @@
         <a href="#projects" class="cta-button">Ver Projetos</a>
     </section>
 
-    <section id="knowledge" class="knowledge">
+    <section id="knowledge" class="knowledge" data-aos="fade-up">
         <h2>Conhecimentos</h2>
+
         <p>Ferramentas e tecnologias com as quais trabalho:</p>
         <div class="tools">
-            <!-- Exemplos de ícones que você pode adicionar -->
             <div class="tool">
                 <img src="corel.png" alt="Corel">
             </div>
@@ -55,33 +65,32 @@
             <div class="tool">
                 <img src="css.png" alt="css">
             </div>
-            <!-- Adicione mais ferramentas conforme necessário -->
-        </div>
+
     </section>
     
 
    <section id="experience" class="experience">
     <h2>Experiências Profissionais</h2>
     <div class="experience-container">
-        <div class="experience-card">
+        <div class="experience-card" data-aos="zoom-in">
             <img src="rc.png" alt="Rodrigues Colchões">
             <h3>Assistente de Endomarketing</h3>
             <p>Atuação na comunicação interna, criação de artes, campanhas e estratégias para o ambiente corporativo.</p>
         </div>
 
-        <div class="experience-card">
+        <div class="experience-card" data-aos="zoom-in">
             <img src="rc.png" alt="Rodrigues Colchões">
             <h3>Estagiária de Comunicação</h3>
             <p>Desenvolvimento de materiais gráficos, redes sociais e ações de marketing para fortalecimento da marca.</p>
         </div>
 
-        <div class="experience-card">
+        <div class="experience-card" data-aos="zoom-in">
             <img src="eucatur.png" alt="Eucatur">
             <h3>Estagiária de Comunicação</h3>
             <p>Desenvolvimento de materiais gráficos, redes sociais e ações de marketing para fortalecimento da marca.</p>
         </div>
 
-        <div class="experience-card">
+        <div class="experience-card" data-aos="zoom-in">
             <img src="microlins.png" alt="Microlins">
             <h3>Monitor de TI</h3>
             <p>Suporte técnico a alunos, manutenção de equipamentos e auxílio em treinamentos e cursos.</p>
@@ -95,93 +104,93 @@
 
         <div class="projects-container">
 
-            <div class="project-card">
+            <div class="project-card" data-aos="zoom-in">
                 <a href="https://www.instagram.com/p/DGOvrrYJQQE/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==" target="_blank">
                 <img src="projeto18.png" alt="Projeto 18">
             </a>
             <h3>Talentos que Inspiram Rodrigues Colchões</h3>
         </div>
-            <div class="project-card">
+            <div class="project-card" data-aos="zoom-in">
                 <img src="projeto17.png" alt="Projeto 17">
             </a>
             <h3>Candidato Aprovado Rodrigues Colchões</h3>
         </div>
-            <div class="project-card">
+            <div class="project-card" data-aos="zoom-in">
                 <a href="https://www.instagram.com/p/DB4eh35J0Yn/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==" target="_blank">
                 <img src="projeto16.png" alt="Projeto 16">
             </a>
             <h3>Churrasco Equipe Rodrigues Colchões</h3>
         </div>
-            <div class="project-card">
+            <div class="project-card" data-aos="zoom-in">
                     <img src="projeto14.png" alt="Projeto 14">
                 </a>
                 <h3>Grupo Todos Somos Rodrigues Colchões</h3>
             </div>
-            <div class="project-card">
+            <div class="project-card" data-aos="zoom-in">
                     <img src="projeto13.png" alt="Projeto 13">
                 </a>
                 <h3>Day Off Rodrigues Colchões</h3>
             </div>
-            <div class="project-card">
+            <div class="project-card" data-aos="zoom-in">
                 <a href="https://www.instagram.com/p/DC2QIvkPB2N/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==" target="_blank">
                     <img src="projeto12.png" alt="Projeto 12">
                 </a>
                 <h3>Dia do Transporte Sustentável Eucatur</h3>
             </div>
-            <div class="project-card">
+            <div class="project-card" data-aos="zoom-in">
                 <a href="https://www.instagram.com/p/DCY7n_WhKh-/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==" target="_blank">
                     <img src="projeto11.png" alt="Projeto 11">
                 </a>
                 <h3>Proclamação da República Eucatur</h3>
             </div>
-            <div class="project-card">
+            <div class="project-card" data-aos="zoom-in">
                 <a href="https://www.instagram.com/p/DBgY66Sp7ZT/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==" target="_blank">
                     <img src="projeto10.png" alt="Projeto 10">
                 </a>
                 <h3>Aniversário de Manaus Eucatur</h3>
             </div>
-            <div class="project-card">
+            <div class="project-card" data-aos="zoom-in">
                 <a href="https://www.instagram.com/p/DBL9NWhJ7uX/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==" target="_blank">
                     <img src="projeto15.png" alt="Projeto 15">
                 </a>
                 <h3>Outubro Rosa Rodrigues Colchões</h3>
             </div>
-        <div class="project-card">
+        <div class="project-card" data-aos="zoom-in">
             <a href="https://www.instagram.com/p/DAtjvVmNIyk/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==" target="_blank">
                 <img src="projeto9.png" alt="Projeto 9">
             </a>
             <h3>Outubro Rosa Eucatur</h3>
         </div>
-        <div class="project-card">
+        <div class="project-card" data-aos="zoom-in">
             <a href="https://www.instagram.com/p/DCmF3J_pbiA/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==" target="_blank">
                 <img src="projeto8.png" alt="Projeto 8">
             </a>
             <h3>Dia da Consciência Negra Eucatur</h3>
         </div> 
-        <div class="project-card">
+        <div class="project-card" data-aos="zoom-in">
             <img src="projeto1.png" alt="Projeto 1">
             <h3>Ansiedade</h3>
         </div>
-        <div class="project-card">
+        <div class="project-card" data-aos="zoom-in">
             <img src="projeto2.png" alt="Projeto 2">
             <h3>Curso de Digitação Microlins</h3>
         </div>
-        <div class="project-card">
+        <div class="project-card" data-aos="zoom-in">
             <img src="projeto3.png" alt="Projeto 3">
             <h3>Reunião de Pais Microlins</h3>
         </div>
 
-        <div class="project-card">
+        <div class="project-card" data-aos="zoom-in">
             <img src="projeto4.png" alt="Projeto 3">
             <h3>Oficina de Web Microlins</h3>
         </div>
 
-        <div class="project-card">
+        <div class="project-card" data-aos="zoom-in">
             <img src="projeto7.png" alt="Projeto 3">
             <h3>Reposição Microlins</h3>
         </div>
 
-        <div class="project-card">
+        <div class="project-card" data-aos="zoom-in">
             <img src="projeto6.png" alt="Projeto 3">
             <h3>Feliz Natal Flat Mídia</h3>
         </div>
@@ -191,5 +200,24 @@
         <p>Entre em contato: (92) 98500-1154</p>
         <p>&copy; 2024 Meu Portfólio. Todos os direitos reservados.</p>
     </footer>
+    <script>
+        AOS.init({
+            duration: 800, // Duração da animação (milissegundos)
+        });
+    </script>
+    
+    <script>
+        const themeToggle = document.getElementById('theme-toggle');
+        themeToggle.addEventListener('click', () => {
+            document.body.classList.toggle('dark-mode');
+            // Alternar o ícone de sol/ lua
+            if (document.body.classList.contains('dark-mode')) {
+                themeToggle.textContent = '🌞'; // Ícone de sol no modo escuro
+            } else {
+                themeToggle.textContent = '🌙'; // Ícone de lua no modo claro
+            }
+        });
+    </script>
+
 </body>
 </html>

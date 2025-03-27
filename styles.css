@@ -10,6 +10,12 @@ body {
     color: #333;
 }
 
+body.dark-mode {
+    background-color: #121212; /* Cor de fundo do modo noturno */
+    color: #f4f4f4; /* Texto claro no modo noturno */
+}
+
+
 .navbar {
     display: flex;
     justify-content: space-between;
@@ -25,6 +31,135 @@ body {
     -moz-box-shadow: 0px 0.5px 8px 1px rgba(56,56,56,1);
     box-shadow: 0px 0.5px 8px 1px rgba(56,56,56,1);
 }
+
+.mode-toggle {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+}
+
+.switch input {
+    display: none;
+}
+
+.switch .slider {
+    position: relative;
+    width: 34px;
+    height: 20px;
+    background-color: #ccc;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.switch .slider:before {
+    content: "";
+    position: absolute;
+    width: 16px;
+    height: 16px;
+    background-color: white;
+    border-radius: 50%;
+    left: 4px;
+    top: 2px;
+    transition: 0.3s;
+}
+
+/* Quando o modo noturno for ativado */
+input:checked + .slider {
+    background-color: #66bb6a;
+}
+
+input:checked + .slider:before {
+    transform: translateX(14px); /* Muda a posição do botão */
+}
+
+/* Estilos para o modo escuro */
+body.dark-mode {
+    background-color: #121212; /* Fundo escuro */
+    color: #f4f4f4; /* Cor do texto clara */
+    background: #121212;
+    background-image: 
+        linear-gradient(45deg, rgba(255,255,255,0.1) 25%, transparent 25%), 
+        linear-gradient(-45deg, rgba(255,255,255,0.1) 25%, transparent 25%),
+        linear-gradient(45deg, transparent 75%, rgba(255,255,255,0.1) 75%), 
+        linear-gradient(-45deg, transparent 75%, rgba(255,255,255,0.1) 75%);
+    background-size: 10px 10px; /* Ajuste a densidade do ruído */
+    background-position: 0 0, 5px 5px, 0 0, 5px 5px;
+}
+
+/* Garantindo que as cabeçalhos e subtítulos fiquem claros no modo escuro */
+body.dark-mode h1, body.dark-mode h2, body.dark-mode h3, body.dark-mode h4, body.dark-mode h5, body.dark-mode h6 {
+    color: #f4f4f4; /* Cor clara para cabeçalhos */
+}
+
+/* Garantindo que parágrafos e textos dentro de divs fiquem claros no modo escuro */
+body.dark-mode p, body.dark-mode .text, body.dark-mode .description {
+    color: #f4f4f4; /* Texto claro */
+}
+
+/* Garantindo que os textos específicos, como na seção de experiências, também fiquem claros */
+body.dark-mode .experience .role, 
+body.dark-mode .experience .description {
+    color: #f4f4f4; /* Texto claro para as experiências */
+}
+
+/* Garantindo que o texto dentro de links também esteja claro */
+body.dark-mode a {
+    color: #f4f4f4; /* Cor dos links */
+}
+
+body.dark-mode a:hover {
+    color: #ff6f61; /* Cor dos links ao passar o mouse */
+}
+
+body.dark-mode .navbar {
+    background-color: #333; /* Fundo escuro para o navbar */
+}
+
+body.dark-mode .cta-button {
+    background-color: #ff6f61; /* Botão de chamada para ação no modo escuro */
+    color: #fff; /* Texto claro no botão */
+}
+
+body.dark-mode .footer {
+    background-color: #333; /* Fundo escuro para o rodapé */
+    color: #bbb; /* Texto claro no rodapé */
+}
+
+body.dark-mode .hero {
+    background-color: #1e1e1e; /* Fundo escuro para a seção hero */
+}
+
+body.dark-mode .projects {
+    background-color: #222; /* Fundo escuro para a seção de projetos */
+}
+
+body.dark-mode .experience {
+    background-color: #222; /* Fundo escuro para a seção de experiências */
+}
+
+body.dark-mode .knowledge {
+    background-color: #222; /* Fundo escuro para a seção de conhecimentos */
+}
+
+body.dark-mode .project-card {
+    background-color: #333; /* Fundo escuro para os cards dos projetos */
+    color: #fff; /* Texto claro nos cards dos projetos */
+}
+
+body.dark-mode .experience-card {
+    background-color: #333; /* Fundo escuro para os cards de experiência */
+    color: #fff; /* Texto claro nos cards de experiência */
+}
+
+body.dark-mode .project-card a::after {
+    color: #fff; /* Cor do texto "Clique Aqui" no modo escuro */
+}
+
+body.dark-mode .project-card a:hover::after {
+    color: #ffffff; /* Cor do texto "Clique Aqui" ao passar o mouse */
+}
+
 
 .navbar .logo {
     font-size: 1.5rem;
@@ -186,4 +321,73 @@ body {
 .tool p {
     font-size: 1rem;
     color: #333;
+}
+
+.project-card a {
+    display: block;
+    position: relative;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    overflow: hidden; /* Impede que o texto ultrapasse os limites da imagem */
+    border-radius: 8px; /* Adiciona borda arredondada ao contêiner do post */
+}
+
+.project-card img {
+    width: 100%;
+    height: auto;
+    transition: filter 0.3s ease; /* Transição suave para o desfoque da imagem */
+    border-radius: 8px; /* Arredonda as bordas da imagem */
+}
+.project-card a:hover img {
+    filter: blur(5px); /* Aplica o desfoque à imagem */
+}
+
+.project-card a:hover {
+    transform: scale(1.05);
+}
+
+.project-card img {
+    width: 100%;
+    height: auto;
+    transition: filter 0.3s ease; /* Transição suave para o desfoque da imagem */
+}
+
+.project-card a:hover img {
+    filter: blur(5px); /* Aplica o desfoque apenas à imagem */
+}
+
+.project-card a::after {
+    content: "Clique Aqui"; /* Texto que será exibido */
+    position: absolute;
+    top: 50%; /* Centraliza o texto verticalmente */
+    left: 50%; /* Centraliza o texto horizontalmente */
+    transform: translate(-50%, -50%); /* Ajuste para centralização perfeita */
+    font-family: 'Arial', sans-serif; /* Fonte sans-serif */
+    font-weight: bold;
+    font-size: 1.5rem;
+    color: white;
+    z-index: 2; /* Coloca o texto acima da imagem */
+    opacity: 0; /* Inicialmente invisível */
+    transition: opacity 0.3s ease;
+}
+
+.project-card a::before {
+    font-family: 'FontAwesome'; /* Certifique-se de que você tenha o Font Awesome incluído */
+    margin-right: 8px;
+    font-size: 1.5rem;
+}
+
+.project-card a:hover::after {
+    opacity: 1; /* Torna o texto visível quando o mouse passar sobre o link */
+}
+
+
+
+/* Animação de bounce no ícone */
+@keyframes bounce {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px); /* O ícone sobe um pouco */
+    }
 }

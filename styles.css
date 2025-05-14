@@ -5,6 +5,10 @@
     font-family: 'Arial', sans-serif;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
     line-height: 1.6;
     color: #333;
@@ -15,6 +19,57 @@ body.dark-mode {
     color: #f4f4f4; /* Texto claro no modo noturno */
 }
 
+.sobre-mim {
+  padding: 4rem 2rem;
+    border-radius: 1rem;
+  background-color: #f4f4f4;
+  color: #333;
+}
+
+.sobre-mim .container {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.foto-perfil {
+  width: 200px;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 100%;
+box-shadow: 11px 12px 38px -10px rgba(0,0,0,0.48);
+-webkit-box-shadow: 11px 12px 38px -10px rgba(0,0,0,0.48);
+-moz-box-shadow: 11px 12px 38px -10px rgba(0,0,0,0.48);
+}
+
+.texto-sobre h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+.texto-sobre p {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+}
+
+.linkedin-link {
+  color: #ff6f61;
+  font-weight: bold;
+  text-decoration: none;
+  border: 1px solid #ff6f61;
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+.linkedin-link:hover {
+  background-color: #ff6f61;
+  color: #fff;
+}
 
 .navbar {
     display: flex;
@@ -32,11 +87,6 @@ body.dark-mode {
     box-shadow: 0px 0.5px 8px 1px rgba(56,56,56,1);
 }
 
-.mode-toggle {
-    position: fixed;
-    top: 20px;
-    right: 20px;
-}
 
 .switch input {
     display: none;
@@ -77,13 +127,6 @@ input:checked + .slider:before {
 body.dark-mode {
     background-color: #121212; /* Fundo escuro */
     color: #f4f4f4; /* Cor do texto clara */
-    background: #121212;
-    background-image: 
-        linear-gradient(45deg, rgba(255,255,255,0.1) 25%, transparent 25%), 
-        linear-gradient(-45deg, rgba(255,255,255,0.1) 25%, transparent 25%),
-        linear-gradient(45deg, transparent 75%, rgba(255,255,255,0.1) 75%), 
-        linear-gradient(-45deg, transparent 75%, rgba(255,255,255,0.1) 75%);
-    background-size: 10px 10px; /* Ajuste a densidade do ruído */
     background-position: 0 0, 5px 5px, 0 0, 5px 5px;
 }
 
@@ -131,7 +174,7 @@ body.dark-mode .hero {
 }
 
 body.dark-mode .projects {
-    background-color: #222; /* Fundo escuro para a seção de projetos */
+    background-color: #0c0c0c; /* Fundo escuro para a seção de projetos */
 }
 
 body.dark-mode .experience {
@@ -139,15 +182,29 @@ body.dark-mode .experience {
 }
 
 body.dark-mode .knowledge {
-    background-color: #222; /* Fundo escuro para a seção de conhecimentos */
+    background-color: #0c0c0c/* Fundo escuro para a seção de conhecimentos */
 }
 
 body.dark-mode .project-card {
-    background-color: #333; /* Fundo escuro para os cards dos projetos */
     color: #fff; /* Texto claro nos cards dos projetos */
 }
 
 body.dark-mode .experience-card {
+    background-color: #333; /* Fundo escuro para os cards de experiência */
+    color: #fff; /* Texto claro nos cards de experiência */
+}
+
+body.dark-mode .caixa {
+    background-color: #333; /* Fundo escuro para os cards de experiência */
+    color: #000000; /* Texto claro nos cards de experiência */
+      border-radius: 1rem;
+}
+
+body.dark-mode .form-contato label{
+    color: #fff; /* Texto claro nos cards de experiência */
+}
+
+body.dark-mode .sobre-mim {
     background-color: #333; /* Fundo escuro para os cards de experiência */
     color: #fff; /* Texto claro nos cards de experiência */
 }
@@ -219,11 +276,12 @@ body.dark-mode .project-card a:hover::after {
 }
 
 .projects {
-    background-color: #f4f4f4;
+    background-color: #ffffff;
 }
 
 .experience {
     padding: 4rem 2rem;
+      border-radius: 1rem;
     text-align: center;
     background-color: #f4f4f4;
 }
@@ -287,7 +345,7 @@ body.dark-mode .project-card a:hover::after {
 .knowledge {
     padding: 4rem 2rem;
     text-align: center;
-    background-color: #f4f4f4;
+    background-color: #ffffff;
 }
 
 .knowledge h2 {
@@ -380,7 +438,63 @@ body.dark-mode .project-card a:hover::after {
     opacity: 1; /* Torna o texto visível quando o mouse passar sobre o link */
 }
 
+.form-contato {
+  max-width: 500px;
+  margin: 4rem auto; /* Espaço acima e abaixo + centralização */
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding: 0 1rem;
+}
 
+.form-contato label {
+  font-weight: bold;
+  font-size: 0.9rem;
+  color: var(--cor-texto);
+}
+
+.form-contato input,
+.form-contato textarea {
+  background-color: var(--cor-fundo-secundario, #ffffff);
+  color: var(--cor-texto);
+  border: 1px solid #b8b8b8;
+  padding: 0.75rem;
+  border-radius: 0.5rem;
+  font-size: 1rem;
+  transition: border-color 0.3s ease;
+}
+
+.form-contato input:focus,
+.form-contato textarea:focus {
+  border-color: var(--cor-principal, #ff6f61);
+  outline: none;
+}
+
+.form-contato button {
+  background-color: var(--cor-principal, #ff6f61);
+  color: white;
+  border: none;
+  padding: 0.8rem 1.2rem;
+  border-radius: 0.5rem;
+  font-weight: bold;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.form-contato button:hover {
+  background-color: #fd4e3f;
+}
+
+.caixa {
+  padding: 2rem;
+  border-radius: 1rem;
+  background-color: #f4f4f4;
+}
+
+.caixa h2 {
+  text-align: center;
+}
 
 /* Animação de bounce no ícone */
 @keyframes bounce {

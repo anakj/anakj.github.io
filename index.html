@@ -248,17 +248,16 @@ border: 1px solid #333333;
 }
 
 .recommendations-section {
-      overflow: hidden;
-  padding: 4rem 0.1%;
+  overflow: hidden;
+  padding: 4rem 5%; /* 🔥 mais respiro lateral no mobile */
   margin: 2rem 0;
 }
 
 .recommendations-container {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-  gap: 2rem; /* espaçamento entre as caixas */
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* 🔥 responsivo real */
+  gap: 2rem;
   margin-top: 2rem;
-  grid-template-columns: repeat(3, 1fr);
 }
 
 .recommendation-card {
@@ -266,45 +265,90 @@ border: 1px solid #333333;
   border: 2px solid #1a1a1a;
   border-radius: 16px;
   padding: 2rem;
-  margin-bottom: 2rem;
 }
 
-
+/* texto */
 .recommendation-text {
   color: #1a1a1a;
-  font-size: 16px;
-  line-height: 1.5;
+  font-size: 15px; /* 🔥 levemente menor no mobile */
+  line-height: 1.6;
   margin-bottom: 1.5rem;
 }
 
+/* autor */
+/* SECTION */
+.recommendations-section {
+  padding: 60px 0;
+}
+
+/* GRID */
+.recommendations-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+  margin-top: 20px;
+}
+
+/* CARD */
+.recommendation-card {
+  background: #fff;
+  border: 1px solid #1a1a1a; /* 🔥 borda preta de volta */
+  border-radius: 12px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+  transition: 0.3s ease;
+}
+
+.recommendation-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.08); /* leve sombra pra não ficar pesado */
+}
+
+/* TEXTO */
+.recommendation-text {
+  font-size: 14px;
+  line-height: 1.6;
+  color: var(--muted);
+  margin-bottom: 16px;
+}
+
+/* AUTOR */
 .recommendation-author {
   display: flex;
   align-items: center;
-  gap: 12px;
-}
-
-.author-photo {
-  width: 48px;
-  height: 48px;
-  border-radius: 50%;
-  overflow: hidden; /* corta o que sair do círculo */
-  flex-shrink: 0;
+  gap: 10px;
 }
 
 .author-photo img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover; /* preenche o círculo sem distorcer */
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
 }
 
 .author-info strong {
   display: block;
-  color:#1a1a1a;
+  font-size: 14px;
 }
 
 .author-role {
-  font-size: 13px;
-  color: #1a1a1a;
+  font-size: 12px;
+  color: var(--muted);
+}
+
+/* RESPONSIVO */
+@media (max-width: 1000px){
+  .recommendations-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px){
+  .recommendations-container {
+    grid-template-columns: 1fr;
+  }
 }
 
 /* Efeito fade + slide suave para elementos */
@@ -707,14 +751,16 @@ leftArrow.addEventListener('click', () => {
 
 <section id="reviews" class="recommendations-section">
   <h2 class="section-title">Recomendações</h2>
+
   <div class="recommendations-container">
+
     <div class="recommendation-card">
       <p class="recommendation-text">
         “Trabalhamos juntas e tive o privilégio de conhecer o talento e habilidades da Ana em suas produções e envolvimento com as entregas! Super envolvida, responsável, comprometida e cheia de criatividades que fazem dela um talento excepcional! Te admiro Ana, recomendo e torço d+ por vc! Sucesso e creio que vc é uma profissional gigante.”
       </p>
       <div class="recommendation-author">
         <div class="author-photo">
-          <img src="cristiane.jpg" alt="Josieli Trindade">
+          <img src="cristiane.jpg" alt="Cristiane Lins">
         </div>
         <div class="author-info">
           <strong>Cristiane Lins</strong>
@@ -737,12 +783,14 @@ leftArrow.addEventListener('click', () => {
         </div>
       </div>
     </div>
+
     <div class="recommendation-card">
       <p class="recommendation-text">
-        “Tive a satisfação de trabalhar com a Ana Eloísa na Eucatur Urbano. Desde o início, mostrou-se uma profissional proativa, desenrolada e prestativa, sempre disposta a aprender e colaborar. Seu domínio em edição, IA e programação contribuiu muito para as demandas da área.”</p>
+        “Tive a satisfação de trabalhar com a Ana Eloísa na Eucatur Urbano. Desde o início, mostrou-se uma profissional proativa, desenrolada e prestativa, sempre disposta a aprender e colaborar. Seu domínio em edição, IA e programação contribuiu muito para as demandas da área.”
+      </p>
       <div class="recommendation-author">
         <div class="author-photo">
-          <img src="andreza.jpg" alt="Andreza">
+          <img src="andreza.jpg" alt="Andreza Dutra">
         </div>
         <div class="author-info">
           <strong>Andreza Dutra</strong>
@@ -750,7 +798,7 @@ leftArrow.addEventListener('click', () => {
         </div>
       </div>
     </div>
-  </div>
+
   </div>
 </section>
 

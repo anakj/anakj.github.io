@@ -1,285 +1,805 @@
-<!DOCTYPE html>
-<html lang="pt-br">
+<!doctype html>
+<html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ana Eloísa | Portfólio</title>
-    <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
-<script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Ana Eloísa: Comunicação & Endomarketing</title>
+  <meta name="description" content="Estrutura de site inspirada no template Clientele — HTML e CSS puro, responsivo." />
+  <style>
+    :root{
+      --bg:#ffffff;
+      --text:#0f1724;
+      --muted:#6b7280;
+      --accent:#111827;
+      --card:#f3f4f6;
+      --radius:14px;
+      --maxw:1200px;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{font-family:Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial; margin:0; background:var(--bg); color:var(--text); -webkit-font-smoothing:antialiased}
 
+    .container{max-width:var(--maxw); margin:0 auto; padding:0 24px}
+
+    /* NAV */
+    header{position:sticky; top:0; background:rgba(255,255,255,0.85); backdrop-filter:blur(6px); border-bottom:1px solid #e6e7eb; z-index:40}
+    .nav{display:flex; align-items:center; justify-content:space-between; height:72px}
+    .brand{font-weight:700; font-size:18px}
+    nav a{margin-left:20px; text-decoration:none; color:var(--text); font-size:15px}
+    .btn-cta{background:var(--accent); color:white; padding:9px 14px; border-radius:10px; text-decoration:none}
+    .menu-toggle{display:none}
+
+    /* HERO */
+    .hero{display:grid; grid-template-columns:1fr 1fr; gap:36px; align-items:center; padding:56px 0}
+    .eyebrow{font-size:13px; color:var(--muted); text-transform:uppercase; letter-spacing:1px}
+    h1{font-size:44px; margin:10px 0 0; line-height:1.02}
+    p.lead{margin-top:18px; color:var(--muted); font-size:17px}
+    .hero-actions{margin-top:22px}
+    .btn{display:inline-block; padding:11px 16px; border-radius:10px; text-decoration:none; margin-right:10px; border:1px solid #e5e7eb}
+    .btn.primary{background:var(--accent); color:white; border:none}
+
+    .hero-visual{
+        position: relative; overflow: hidden; height:360px; border-radius:var(--radius); background:linear-gradient(180deg,#f8fafc,#eef2ff); display:flex; align-items:center; justify-content:center; border:1px solid #eceff5}
+
+    .hero-img {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  top: 0;
+  left: 0;
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
+}
+
+.hero-img.active {
+  opacity: 1;
+}
+
+    /* CLIENTS */
+.clients {
+  overflow: hidden;
+  border-top: 1px solid #eef2f6;
+  border-bottom: 1px solid #eef2f6;
+  padding: 18px 0;
+  margin: 24px 0;
+}
+
+.reviews-row {
+  display: flex;
+  gap: 60px;
+  animation: scrollLogos 20s linear infinite;
+}
+
+.reviews-row:hover {
+  animation-play-state: paused;
+}
+
+.clients-row {
+  display: flex;
+  gap: 60px;
+  animation: scrollLogos 25s linear infinite;
+  width: max-content;
+}
+
+.client img {
+  height: 50px;
+  object-fit: contain;
+  opacity: 0.9;
+  transition: opacity 0.3s ease;
+}
+
+.client img:hover {
+  opacity: 1;
+}
+
+.clients-row:hover {
+  animation-play-state: paused;
+}
+
+/* Animação contínua */
+@keyframes scrollLogos {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+        /* ABOUT / FEATURES */
+    .split{display:grid; grid-template-columns:1fr 1fr; gap:28px; align-items:start; padding:36px 0}
+    .features .feature{padding:16px; border-radius:12px; border:1px solid #eef2f6; margin-bottom:12px}
+/* WORK GRID */
+.section-title{font-size:20px; margin-bottom:12px}
+
+.grid{
+  display:grid; 
+  grid-template-columns:repeat(3,1fr); 
+  gap:18px
+}
+
+.card{
+  border-radius:12px; 
+  overflow:hidden; 
+  border:1px solid #eef2f6; 
+  background:white; 
+  text-decoration:none; 
+  color:inherit
+}
+
+/* 🔥 AJUSTE AQUI */
+.card .thumb{
+  height:160px; 
+  overflow:hidden; 
+  background:#f3f4f6
+}
+
+.card .thumb img{
+  width:100%;
+  height:100%;
+  object-fit:cover; /* resolve o esticamento */
+  display:block;
+}
+
+.card .meta{padding:14px}
+
+.meta h4{
+  margin:0 0 6px; 
+  font-size:15px
+}
+
+.meta p{
+  margin:0; 
+  color:var(--muted); 
+  font-size:13px
+}
+
+    /* SERVICES */
+    .services{display:grid; grid-template-columns:repeat(3,1fr); gap:16px; margin-top:16px}
+    .service{padding:18px; border-radius:12px; border:1px solid #eef2f6}
+
+    /* CTA */
+    .cta{margin:36px 0; padding:20px; border-radius:14px; border:1px solid #eef2f6; display:flex; align-items:center; justify-content:space-between}
+
+    /* FOOTER */
+    footer{padding:28px 0; border-top:1px solid #eef2f6; margin-top:40px}
+    footer .foot-row{display:flex; justify-content:space-between; align-items:center}
+    footer a{color:var(--muted); text-decoration:none; font-size:14px}
+
+    /* Responsividade */
+    @media (max-width:1000px){
+      .grid{grid-template-columns:repeat(2,1fr)}
+      .hero{grid-template-columns:1fr}
+      .split{grid-template-columns:1fr}
+      .services{grid-template-columns:1fr}
+      .hero-visual{height:260px}
+    }
+    @media (max-width:640px){
+      .nav a:not(.brand){display:none}
+      .menu-toggle{display:block}
+      h1{font-size:32px}
+      .grid{grid-template-columns:1fr}
+    }
+
+    /* pequenas refinadas */
+    .muted{color:var(--muted)}
+
+    .videos-section {
+    padding: 4rem 0.3%;
+}
+
+.video-card {
+  min-width: 350px;
+  flex-shrink: 0;
+}
+
+.video-card iframe {
+  width: 100%;
+  height: 200px;
+  border-radius: 12px;
+  border: none;
+}
+
+.social-wrapper {
+  position: relative;
+}
+
+.social-wrapper .grid.scrollable {
+  display: flex;
+  flex-wrap: nowrap;        /* impede quebra dos cards */
+  gap: 18px;
+  overflow-x: auto;       /* esconde scrollbars */
+  scroll-behavior: smooth;
+  padding: 10px 0;
+  overflow-x: auto;
+scrollbar-width: none; /* Firefox */
+-ms-overflow-style: none; /* IE 10+ */
+}
+
+
+.scrollable::-webkit-scrollbar { display: none; }
+
+.social-card {
+  min-width: 300px;
+  flex-shrink: 0;
+}
+
+.social-card iframe {
+  width: 100%;
+  height: 400px;
+  border-radius: 12px;
+  border: none;
+}
+
+
+.about-section, .services-section {
+background-color: #111111; /* preto escuro */
+border: 2px solid #333333; /* borda cinza escuro */
+border-radius: 14px;
+padding: 3rem 2rem;
+margin: 2rem 5%;
+}
+
+
+.services-section .service {
+background-color: #1a1a1a; /* levemente mais claro que a seção */
+border: 1px solid #333333;
+}
+
+.recommendations-section {
+      overflow: hidden;
+  padding: 4rem 0.1%;
+  margin: 2rem 0;
+}
+
+.recommendations-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 2rem; /* espaçamento entre as caixas */
+  margin-top: 2rem;
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.recommendation-card {
+  background-color: #ffffff;
+  border: 2px solid #1a1a1a;
+  border-radius: 16px;
+  padding: 2rem;
+  margin-bottom: 2rem;
+}
+
+
+.recommendation-text {
+  color: #1a1a1a;
+  font-size: 16px;
+  line-height: 1.5;
+  margin-bottom: 1.5rem;
+}
+
+.recommendation-author {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.author-photo {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  overflow: hidden; /* corta o que sair do círculo */
+  flex-shrink: 0;
+}
+
+.author-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* preenche o círculo sem distorcer */
+}
+
+.author-info strong {
+  display: block;
+  color:#1a1a1a;
+}
+
+.author-role {
+  font-size: 13px;
+  color: #1a1a1a;
+}
+
+/* Efeito fade + slide suave para elementos */
+.fade-in {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInUp 0.8s ease forwards;
+}
+
+.fade-in-delay-1 { animation-delay: 0.2s; }
+.fade-in-delay-2 { animation-delay: 0.4s; }
+.fade-in-delay-3 { animation-delay: 0.6s; }
+
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Hover sutil nos cards */
+.card, .video-card, .social-card, .recommendation-card, .service {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover, .video-card:hover, .social-card:hover, .recommendation-card:hover, .service:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+  border-radius: 16px;
+}
+
+.featured-work-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+
+.carousel-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.grid.scrollable {
+  display: flex;
+  gap: 18px;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  scrollbar-width: none; /* remove a barra no Firefox */
+}
+.grid.scrollable::-webkit-scrollbar {
+  display: none; /* remove a barra no Chrome */
+}
+.featured-work-wrapper .grid.scrollable {
+  display: flex;           /* importante para alinhar cards horizontalmente */
+  gap: 18px;               /* espaço entre cards */
+  overflow-x: auto;        /* permite scroll horizontal */
+  scroll-behavior: smooth; /* animação suave */
+  padding: 10px 0;
+  scroll-snap-type: x mandatory; /* opcional: snap suave */
+}
+
+/* CONTACT */
+.contact-section{
+  padding: 80px 0; /* 🔥 mais espaço como outras seções */
+  max-width: 700px; /* 🔥 aumenta largura */
+  margin: 0 auto;
+  text-align: center;
+}
+
+.contact-section .section-title{
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+/* FORM */
+.form-contato{
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  margin-top: 20px;
+}
+
+.form-contato input,
+.form-contato textarea{
+  padding: 14px;
+  border-radius: 12px;
+  border: 1px solid #eef2f6;
+  font-size: 14px;
+  transition: 0.2s;
+}
+
+/* 🔥 foco bonito (igual site moderno) */
+.form-contato input:focus,
+.form-contato textarea:focus{
+  outline: none;
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px rgba(99,102,241,0.1);
+}
+
+.form-contato textarea{
+  height: 120px;
+  resize: none;
+}
+
+.form-contato button{
+  padding: 14px;
+  border: none;
+  border-radius: 12px;
+  background: var(--accent);
+  color: white;
+  font-weight: 500;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+/* hover padrão do site */
+.form-contato button:hover{
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+}
+
+
+
+.featured-work-wrapper .grid.scrollable::-webkit-scrollbar {
+  display: none; /* remove barra do scroll */
+}
+
+.featured-work-wrapper .card {
+  min-width: 250px;  /* ou 300px, dependendo do tamanho desejado */
+  flex-shrink: 0;    /* impede que encolham no scroll */
+  border-radius: 12px;
+  background: #fff;
+}
+
+.arrow {
+  background-color: #111;
+  color: #fff;
+  border: 2px solid #333;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  font-size: 20px;
+  cursor: pointer;
+  position: absolute;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  top: 50%;
+  transform: translateY(-50%);
+  transition: background 0.3s;
+}
+
+.arrow:hover {
+  background-color: #333;
+}
+
+.arrow.left { left: -20px; }
+.arrow.right { right: -20px; }
+
+/* Hover suave nos cards */
+.card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+}
+  </style>
 </head>
-<body>
-    <div class="mode-toggle">
-        <label for="night-mode-toggle" class="switch">
-            <input type="checkbox" id="night-mode-toggle">
-            <span class="slider"></span>
-        </label>
-    </div>
-    <header>
-        <div class="navbar">
-            <!-- Substituindo o texto por uma imagem -->
-            <div class="logo">
-                <img src="lo.png" alt="Logo do Portfólio">
-            </div>
-            <nav>
-                <ul>
-                    <button id="theme-toggle" class="theme-toggle">🌙</button>
-                    <li><a href="#sobre-mim">Sobre Mim</a></li>
-                
-                    <li><a href="#knowledge">Experiências</a></li>
-                    <li><a href="#projects">Projetos</a></li>
-                    <li><a href="#caixa">Entre em Contato</a></li>
-                </ul>
-            </nav>
-        </div>
-    </header>
-    
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  const carousels = document.querySelectorAll('.scrollable');
 
-    <section id="home" class="hero">
-        <h1>Bem-vindo(a) ao Meu Portfólio</h1>
-        <p>Descubra meus projetos e experiências de trabalho.</p>
-        <a href="#projects" class="cta-button">Ver Projetos</a>
+  carousels.forEach(scrollContainer => {
+    const leftArrow = scrollContainer.parentElement.querySelector('.arrow.left');
+    const rightArrow = scrollContainer.parentElement.querySelector('.arrow.right');
+
+    // duplica os cards para o loop infinito
+    const cards = Array.from(scrollContainer.children);
+    cards.forEach(card => scrollContainer.appendChild(card.cloneNode(true)));
+
+    const cardWidth = cards[0].getBoundingClientRect().width + 18; // gap de 18px
+
+rightArrow.addEventListener('click', () => {
+  scrollContainer.scrollBy({ left: cardWidth, behavior: 'smooth' });
+
+  setTimeout(() => {
+    if (scrollContainer.scrollLeft >= scrollContainer.scrollWidth / 2) {
+      scrollContainer.scrollLeft -= scrollContainer.scrollWidth / 2;
+    }
+  }, 300);
+});
+
+const images = document.querySelectorAll('.hero-img');
+let current = 0;
+
+setInterval(() => {
+  images[current].classList.remove('active');
+  current = (current + 1) % images.length;
+  images[current].classList.add('active');
+}, 3000); // troca a cada 3s
+
+leftArrow.addEventListener('click', () => {
+  scrollContainer.scrollBy({ left: -cardWidth, behavior: 'smooth' });
+
+  setTimeout(() => {
+    if (scrollContainer.scrollLeft <= 0) {
+      scrollContainer.scrollLeft += scrollContainer.scrollWidth / 2;
+    }
+  }, 300);
+});
+  });
+});
+</script>
+<body>
+  <header>
+    <div class="container nav">
+      <div class="brand">Ana Eloísa</div>
+      <div>
+        <a class="btn-cta" href="#work">Projetos</a>
+        <a class="btn-cta" href="#services">Experiências</a>
+        <a class="btn-cta" href="#reviews">Recomendações</a>
+        <a class="btn-cta" href="#contact">Vamos conversar!</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <!-- HERO -->
+    <section class="hero fade-in fade-in-delay-1">
+    
+      <div>
+        <div class="eyebrow">olá, eu sou a ana!</div>
+        <h1>COMUNICAÇÃO &</h1>
+        <h1>ENDOMARKETING</h1>
+        <p class="lead">Transformo comunicação interna em experiências estratégicas que engajam pessoas e fortalecem culturas.</p>
+        <div class="hero-actions">
+          <a class="btn" href="#work">Explore meu trabalho</a>
+          <a class="btn primary" href="#contact">Entre em contato</a>
+        </div>
+      </div>
+<div class="hero-visual fade-in fade-in-delay-2">
+  <img src="ana1 (1).jpeg" class="hero-img active">
+  <img src="ana1 (2).jpeg" class="hero-img">
+  <img src="ana1 (3).jpeg" class="hero-img">
+  <img src="ana1 (5).jpeg" class="hero-img">
+  <img src="ana1 (6).jpeg" class="hero-img">
+  <img src="ana1 (7).jpeg" class="hero-img">
+</div>
     </section>
 
-<section id="sobre-mim" class="sobre-mim" data-aos="fade-up">
-  <div class="container" data-aos="zoom-in">
-    <img src="sua-foto.jpg" alt="Foto de Ana Eloisa" class="foto-perfil" />
-    <div class="texto-sobre" data-aos="zoom-in">
-      <h2>Sobre Mim</h2>
-      <p>
-  Olá! Sou Ana Eloisa, estudante de Engenharia de Software, e tenho uma sólida experiência na área de endomarketing. Atualmente, trabalho com comunicação interna, ajudando a fortalecer a cultura e os valores de uma empresa com quase 3 mil colaboradores. É gratificante contribuir para um ambiente corporativo que valoriza a transparência, o engajamento e um padrão visual alinhado com seus princípios. Acredito que um endomarketing bem estruturado é essencial para fortalecer a conexão dos colaboradores com a missão da empresa e criar um ambiente mais colaborativo e produtivo.
-    </p>
-      <a href="https://www.linkedin.com/in/anaeloisa" target="_blank" class="linkedin-link">Veja meu LinkedIn</a>
-    </div>
+    <!-- CLIENT LOGOS -->
+<section class="clients">
+  <div class="clients-row">
+    <div class="client"><img src="eucatur.png" alt=""></div>
+    <div class="client"><img src="rodrigues.png" alt=""></div>
+    <div class="client"><img src="baratao.png" alt=""></div>
+    <div class="client"><img src="microlins.png" alt=""></div>
+    <div class="client"><img src="audio.png" alt=""></div>
+    <div class="client"><img src="flat.png" alt=""></div>
+
+    <!-- duplica para efeito infinito -->
+    <div class="client"><img src="eucatur.png" alt=""></div>
+    <div class="client"><img src="rodrigues.png" alt=""></div>
+    <div class="client"><img src="baratao.png" alt=""></div>
+    <div class="client"><img src="microlins.png" alt=""></div>
+    <div class="client"><img src="audio.png" alt=""></div>
+    <div class="client"><img src="flat.png" alt=""></div>
   </div>
 </section>
-    
-    <section id="knowledge" class="knowledge" data-aos="fade-up">
-        <h2>Conhecimentos</h2>
 
-        <p>Ferramentas e tecnologias com as quais trabalho:</p>
-        <div class="tools">
-            <div class="tool">
-                <img src="corel.png" alt="Corel">
-            </div>
-            <div class="tool">
-                <img src="photoshop.png" alt="photoshop">
-            </div>
-            <div class="tool">
-                <img src="canva.png" alt="canva">
-            </div>
-            <div class="tool">
-                <img src="after.png" alt="after">
-            </div>
-            <div class="tool">
-                <img src="html.png" alt="html">
-            </div>
-
-            <div class="tool">
-                <img src="css.png" alt="css">
-            </div>
-
+    <!-- ABOUT / FEATURES -->
+    <section class="split">
+      <div>
+        <h2>O que me diferencia?</h2>
+        <p class="muted">É a integração entre comunicação, cultura organizacional e estratégia de negócio, garantindo que o endomarketing gere impacto real.</p>
+        <p style="margin-top:16px"><a class="btn" href="#services">Conheça meu trabalho</a></p>
+      </div>
+      <div class="features">
+        <div class="feature">Comunicação interna & endomarketing</div>
+        <div class="feature">Employer branding estratégico</div>
+        <div class="feature">Campanhas, ações e eventos institucionais</div>
+      </div>
     </section>
+
+<section id="work">
+  <h3 class="section-title">Projetos em destaque</h3>
+  
+  <div class="featured-work-wrapper">
+    <button class="arrow left">&#8592;</button>
     
-
-   <section id="experience" class="experience" data-aos="fade-up">
-    <h2>Experiências Profissionais</h2>
-
-    <div class="experience-container">
-        <div class="experience-card" data-aos="zoom-in">
-            <img src="bdc.png" alt="Baratão da Carne">
-            <h3>Assistente Adminsitrativo Jr</h3>
-            <p>Foco estratégico na implementação de ações de endomarketing: criação de campanhas internas, gestão da comunicação corporativa e fortalecimento do clima organizacional. </p>
+    <div class="grid scrollable">
+      <a class="card fade-in fade-in-delay-1" href="#">
+        <div class="thumb">
+          <img src="jantar (2).jpeg">
         </div>
-    <div class="experience-container">
-        <div class="experience-card" data-aos="zoom-in">
-            <img src="rc.png" alt="Rodrigues Colchões">
-            <h3>Assistente de Endomarketing</h3>
-            <p>Atuação na comunicação interna, criação de artes, campanhas e estratégias para o ambiente corporativo.</p>
+        <div class="meta">
+          <h4>Produção de Evento: Jantar dos Veteranos</h4>
+          <p class="muted">Evento Institucional</p>
         </div>
-
-        <div class="experience-card" data-aos="zoom-in">
-            <img src="rc.png" alt="Rodrigues Colchões">
-            <h3>Estagiária de Comunicação</h3>
-            <p>Desenvolvimento de materiais gráficos, redes sociais e ações de marketing para fortalecimento da marca.</p>
+      </a>
+      <a class="card fade-in fade-in-delay-2" href="#">
+        <div class="thumb">
+          <img src="caravana.jpg">
         </div>
-
-        <div class="experience-card" data-aos="zoom-in">
-            <img src="eucatur.png" alt="Eucatur">
-            <h3>Estagiária de Comunicação</h3>
-            <p>Desenvolvimento de materiais gráficos, redes sociais e ações de marketing para fortalecimento da marca.</p>
+        <div class="meta">
+          <h4>Ação Interna: Caravana da Cultura</h4>
+          <p class="muted">Ação Itinerante nas Lojas</p>
         </div>
-
+      </a>
+      <a class="card fade-in fade-in-delay-3" href="#">
+        <div class="thumb">
+         <img src="portal.png">
+        </div>
+        <div class="meta">
+          <h4>Lançamento de Portal de Notícias</h4>
+          <p class="muted">Novo canal de comunicação</p>
+        </div>
+      </a>
+      <!-- Cards extras para scroll -->
+      <a class="card fade-in fade-in-delay-1" href="#">
+        <div class="thumb">
+         <img src="senac.png">          
+        </div>
+        <div class="meta">
+          <h4>Ações de bem-estar</h4>
+          <p class="muted">Cuidados com o colaborador</p>
+        </div>
+      </a>
+      <a class="card fade-in fade-in-delay-2" href="#">
+        <div class="thumb">
+         <img src="podcast.png">             
+        </div>
+        <div class="meta">
+          <h4>Podcast Interno</h4>
+          <p class="muted">Valorização de colaboradores</p>
+        </div>
+      </a>
     </div>
+    
+    <button class="arrow right">&#8594;</button>
+  </div>
 </section>
 
-    <section id="projects" class="projects" data-aos="fade-up">
-        <h2>Projetos Recentes</h2>
+<section id="videos" class="videos-section">
+  <h2 class="section-title">Projetos em vídeo</h2>
 
-        <div class="projects-container">
+  <div class="carousel-wrapper">
+    <button class="arrow left">&#8592;</button>
 
-                    <div class="project-card" data-aos="zoom-in">
-                <img src="projeto24.png" alt="Projeto 24">
-            </a>
-            <h3>Card de Vagas Baratão da Carne</h3>
-        </div>
-                        <div class="project-card" data-aos="zoom-in">
-                <a href="https://www.instagram.com/p/DJhqx1WxBzB/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==" target="_blank">
-                <img src="projeto23.png" alt="Projeto 23">
-            </a>
-            <h3>Dia das Mães Baratão da Carne</h3>
-        </div>
-                <div class="project-card" data-aos="zoom-in">
-                <a href="https://www.instagram.com/p/DJHmbI8x-zv/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==" target="_blank">
-                <img src="projeto22.png" alt="Projeto 22">
-            </a>
-            <h3>Dia do Trabalhador Baratão da Carne</h3>
-        </div>
-            <div class="project-card" data-aos="zoom-in">
-                <a href="https://www.instagram.com/p/DJJ9RwgR2KM/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==" target="_blank">
-                <img src="projeto21.png" alt="Projeto 21">
-            </a>
-            <h3>Aniversariantes de Abril Baratão</h3>
-        </div>
-            <div class="project-card" data-aos="zoom-in">
-                <a href="https://www.instagram.com/p/DI4gbl5xoZJ/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==" target="_blank">
-                <img src="projeto20.png" alt="Projeto 20">
-            </a>
-            <h3>Dia do Profissonal de Contabilidade</h3>
-        </div>
-            <div class="project-card" data-aos="zoom-in">
-                <a href="https://www.instagram.com/p/DIzPx0PxqqC/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==" target="_blank">
-                <img src="projeto19.png" alt="Projeto 19">
-            </a>
-            <h3>Conheça o Somos Todos Baratão!</h3>
-        </div>
-            <div class="project-card" data-aos="zoom-in">
-                <a href="https://www.instagram.com/p/DGOvrrYJQQE/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==" target="_blank">
-                <img src="projeto18.png" alt="Projeto 18">
-            </a>
-            <h3>Talentos que Inspiram Rodrigues</h3>
-        </div>
-            <div class="project-card" data-aos="zoom-in">
-                <img src="projeto17.png" alt="Projeto 17">
-            </a>
-            <h3>Candidato Aprovado Rodrigues Colchões</h3>
-        </div>
-            <div class="project-card" data-aos="zoom-in">
-                <a href="https://www.instagram.com/p/DB4eh35J0Yn/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==" target="_blank">
-                <img src="projeto16.png" alt="Projeto 16">
-            </a>
-            <h3>Churrasco Equipe Rodrigues Colchões</h3>
-        </div>
-            <div class="project-card" data-aos="zoom-in">
-                    <img src="projeto14.png" alt="Projeto 14">
-                </a>
-                <h3>Grupo Todos Somos Rodrigues Colchões</h3>
-            </div>
-            <div class="project-card" data-aos="zoom-in">
-                    <img src="projeto13.png" alt="Projeto 13">
-                </a>
-                <h3>Day Off Rodrigues Colchões</h3>
-            </div>
-            <div class="project-card" data-aos="zoom-in">
-                <a href="https://www.instagram.com/p/DC2QIvkPB2N/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==" target="_blank">
-                    <img src="projeto12.png" alt="Projeto 12">
-                </a>
-                <h3>Dia do Transporte Sustentável Eucatur</h3>
-            </div>
-            <div class="project-card" data-aos="zoom-in">
-                <a href="https://www.instagram.com/p/DCY7n_WhKh-/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==" target="_blank">
-                    <img src="projeto11.png" alt="Projeto 11">
-                </a>
-                <h3>Proclamação da República Eucatur</h3>
-            </div>
-            <div class="project-card" data-aos="zoom-in">
-                <a href="https://www.instagram.com/p/DBgY66Sp7ZT/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==" target="_blank">
-                    <img src="projeto10.png" alt="Projeto 10">
-                </a>
-                <h3>Aniversário de Manaus Eucatur</h3>
-            </div>
-            <div class="project-card" data-aos="zoom-in">
-                <a href="https://www.instagram.com/p/DBL9NWhJ7uX/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==" target="_blank">
-                    <img src="projeto15.png" alt="Projeto 15">
-                </a>
-                <h3>Outubro Rosa Rodrigues Colchões</h3>
-            </div>
-        <div class="project-card" data-aos="zoom-in">
-            <a href="https://www.instagram.com/p/DAtjvVmNIyk/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==" target="_blank">
-                <img src="projeto9.png" alt="Projeto 9">
-            </a>
-            <h3>Outubro Rosa Eucatur</h3>
-        </div>
-        <div class="project-card" data-aos="zoom-in">
-            <a href="https://www.instagram.com/p/DCmF3J_pbiA/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==" target="_blank">
-                <img src="projeto8.png" alt="Projeto 8">
-            </a>
-            <h3>Dia da Consciência Negra Eucatur</h3>
-        </div> 
-        <div class="project-card" data-aos="zoom-in">
-            <img src="projeto1.png" alt="Projeto 1">
-            <h3>Ansiedade</h3>
-        </div>
-        <div class="project-card" data-aos="zoom-in">
-            <img src="projeto2.png" alt="Projeto 2">
-            <h3>Curso de Digitação Microlins</h3>
-        </div>
-        <div class="project-card" data-aos="zoom-in">
-            <img src="projeto3.png" alt="Projeto 3">
-            <h3>Reunião de Pais Microlins</h3>
-        </div>
+    <div class="grid scrollable">
+      <div class="video-card">
+        <iframe src="https://www.youtube.com/embed/Kh5B_26omGY?si=lYyXegMMmOhF0Yzu" frameborder="0" allowfullscreen></iframe>
+      </div>
+      <div class="video-card">
+        <iframe src="https://www.youtube.com/embed/nv29pkgZhiQ" frameborder="0" allowfullscreen></iframe>
+      </div>
+      <div class="video-card">
+        <iframe src="https://www.youtube.com/embed/_7Ht5INuHF4" frameborder="0" allowfullscreen></iframe>
+      </div>
+    </div>
 
-        <div class="project-card" data-aos="zoom-in">
-            <img src="projeto4.png" alt="Projeto 3">
-            <h3>Oficina de Web Microlins</h3>
-        </div>
+    <button class="arrow right">&#8594;</button>
+  </div>
+</section>
 
-        <div class="project-card" data-aos="zoom-in">
-            <img src="projeto7.png" alt="Projeto 3">
-            <h3>Reposição Microlins</h3>
-        </div>
+<section id="social-media" class="social-media-section">
+  <h2 class="section-title">Social Media</h2>
 
-        <div class="project-card" data-aos="zoom-in">
-            <img src="projeto6.png" alt="Projeto 3">
-            <h3>Feliz Natal Flat Mídia</h3>
+<div class="social-wrapper" style="position: relative;"> 
+  <div class="grid scrollable">
+    <div class="social-card">
+      <iframe src="https://www.instagram.com/p/DXP2Xp5kZDM/embed" allowfullscreen></iframe>
+    </div>
+    <div class="social-card">
+      <iframe src="https://www.instagram.com/p/DWXbukdEYUr/embed" allowfullscreen></iframe>
+    </div>
+    <div class="social-card">
+      <iframe src="https://www.instagram.com/p/DUtrzyVkVLw/embed" allowfullscreen></iframe>
+    </div>
+        <div class="social-card">
+      <iframe src="https://www.instagram.com/p/DQaHLquEc0p/embed" allowfullscreen></iframe>
+    </div>
+    <div class="social-card">
+      <iframe src="https://www.instagram.com/p/DQC_x3SEaYW/embed" allowfullscreen></iframe>
+    </div>
+    <div class="social-card">
+      <iframe src="https://www.instagram.com/p/DP7KoD7kfHG/embed" allowfullscreen></iframe>
+    </div>
+  </div>
+
+  <button class="arrow left">&#8592;</button>
+  <button class="arrow right">&#8594;</button>
+</div>
+</section>
+
+<section id="reviews" class="recommendations-section">
+  <h2 class="section-title">Recomendações</h2>
+  <div class="recommendations-container">
+    <div class="recommendation-card">
+      <p class="recommendation-text">
+        “Trabalhamos juntas e tive o privilégio de conhecer o talento e habilidades da Ana em suas produções e envolvimento com as entregas! Super envolvida, responsável, comprometida e cheia de criatividades que fazem dela um talento excepcional! Te admiro Ana, recomendo e torço d+ por vc! Sucesso e creio que vc é uma profissional gigante.”
+      </p>
+      <div class="recommendation-author">
+        <div class="author-photo">
+          <img src="cristiane.jpg" alt="Josieli Trindade">
         </div>
+        <div class="author-info">
+          <strong>Cristiane Lins</strong>
+          <span class="author-role">Diretora de Gente & Gestão — Rodrigues Colchões</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="recommendation-card">
+      <p class="recommendation-text">
+        “Eu tive o prazer de trabalhar com a Ana na empresa Rodrigues Colchões e posso dizer que é uma profissional incrível! Sua habilidade em criar ideias, comunicação e ser proativa foi fundamental para o sucesso de endomarketing na empresa. Trabalhar juntas foi uma satisfação, trocas de conhecimento.”
+      </p>
+      <div class="recommendation-author">
+        <div class="author-photo">
+          <img src="josieli.jpg" alt="Josieli Trindade">
+        </div>
+        <div class="author-info">
+          <strong>Josieli Trindade</strong>
+          <span class="author-role">Analista de RH — Rodrigues Colchões</span>
+        </div>
+      </div>
+    </div>
+    <div class="recommendation-card">
+      <p class="recommendation-text">
+        “Tive a satisfação de trabalhar com a Ana Eloísa na Eucatur Urbano. Desde o início, mostrou-se uma profissional proativa, desenrolada e prestativa, sempre disposta a aprender e colaborar. Seu domínio em edição, IA e programação contribuiu muito para as demandas da área.”</p>
+      <div class="recommendation-author">
+        <div class="author-photo">
+          <img src="andreza.jpg" alt="Andreza">
+        </div>
+        <div class="author-info">
+          <strong>Andreza Dutra</strong>
+          <span class="author-role">Assistente de Comunicação — Eucatur Urbano</span>
+        </div>
+      </div>
+    </div>
+  </div>
+  </div>
+</section>
+
+
+    <!-- SERVICES -->
+    <section id="services">
+      <h3 class="section-title" style="margin-top:28px">Minhas experiências</h3>
+      <div class="services">
+        <div class="service">
+          <h4>Integração Estratégica</h4>
+          <p class="muted">Comunicação, cultura e negócio alinhados aos objetivos da empresa.</p>
+        </div>
+        <div class="service">
+          <h4>Visão de Negócio</h4>
+          <p class="muted">Endomarketing orientado a resultados e impacto organizacional.</p>
+        </div>
+        <div class="service">
+          <h4>Execução com Propósito</h4>
+          <p class="muted">Estratégias que se traduzem em ações claras e eficazes.</p>
+        </div>
+      </div>
     </section>
 
-    <section id="caixa" class="caixa" data-aos="fade-up">
-  <h2>Entre em Contato</h2>
-<form class="form-contato" action="https://formspree.io/f/xgvkrazr" method="POST">
-  <input type="text" name="nome" placeholder="Seu nome" required>
-  <input type="email" name="email" placeholder="Seu e-mail" required>
-  <textarea name="mensagem" placeholder="Sua mensagem" required></textarea>
-  <button type="submit">Enviar</button>
-</form>
+    <!-- CTA -->
+<section id="contact" class="contact-section">
+  <h3 class="section-title">Entre em contato</h3>
+
+  <form class="form-contato" action="https://formspree.io/f/xgvkrazr" method="POST">
+    <input type="text" name="nome" placeholder="Seu nome" required>
+    <input type="email" name="email" placeholder="Seu e-mail" required>
+    <textarea name="mensagem" placeholder="Sua mensagem" required></textarea>
+    <button type="submit">Enviar mensagem</button>
+  </form>
 </section>
 
 
-    <footer id="contact" class="footer">
-        <p>Entre em contato: (92) 98500-1154</p>
-        <p>&copy; 2025 Ana Eloísa | Portfólio. Todos os direitos reservados.</p>
-    </footer>
-    <script>
-        AOS.init({
-            duration: 800, // Duração da animação (milissegundos)
-        });
-    </script>
-    
-    <script>
-        const themeToggle = document.getElementById('theme-toggle');
-        themeToggle.addEventListener('click', () => {
-            document.body.classList.toggle('dark-mode');
-            // Alternar o ícone de sol/ lua
-            if (document.body.classList.contains('dark-mode')) {
-                themeToggle.textContent = '🌞'; // Ícone de sol no modo escuro
-            } else {
-                themeToggle.textContent = '🌙'; // Ícone de lua no modo claro
-            }
-        });
-    </script>
 
+  </main>
+
+  <footer>
+    <div class="container">
+      <div class="foot-row">
+        <div>© <span id="year"></span> — Ana Eloísa: (92) 98500-1154</div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>
